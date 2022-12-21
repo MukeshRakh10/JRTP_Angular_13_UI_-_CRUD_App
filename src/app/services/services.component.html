@@ -1,0 +1,85 @@
+<p>services works!</p>
+
+
+
+<hr />
+<h3>Two Way Data Binding</h3>
+<p> Two way data binding technique we can apply
+  only on <b>input & select box </b> only.
+</p>
+<input type="text" [(ngModel)]="name" />
+<h4> Name : <b> {{name}} </b> <br />
+  Country <b> {{selCountry}} </b> <br />
+  Is Employee : {{isEmployee}} <br />
+  Gender : {{gender}} <br />
+</h4>
+Counrty : <select [(ngModel)]="selCountry">
+  <option>India</option>
+  <option>USA</option>
+  <option value="aus">Austrelia</option>
+</select> <br />
+Is Employed : <input type="checkbox" [(ngModel)]="isEmployee" /> <br />
+Gender :
+Male : <input type="radio" [(ngModel)]="gender" value="Male" />
+Female : <input type="radio" [(ngModel)]="gender" value="Female" />
+<hr />
+<h2> Directives : </h2>
+<h3>style ,ngClass, ngFor,ngSwitch : </h3>
+<span [style.color]="styleColor">My name is style directive</span><br />
+<span [ngClass]="myClass">My name is class directive</span>
+
+<div [ngSwitch]="selCountry">
+  <p *ngSwitchCase="'India'"> India is highest second population country in the world.</p>
+  <p *ngSwitchCase="'USA'"> USA is the largest IT service provied counrty in the world.</p>
+  <p *ngSwitchCase="'aus'"> Austrelia is the small counrty in the world.</p>
+</div>
+<div>
+
+  <table border="2px">
+    <tr>
+      <th>Emp Id</th>
+      <th>Emp Name</th>
+      <th>Emp Salary</th>
+    </tr>
+    <tr *ngFor="let emp of employees; let i = index ">
+      <td>{{emp.empId}} </td>
+      <td>{{emp.empName | uppercase}} </td>
+      <td>{{emp.empSalary | currency : " "}} </td>
+      <td><input type="button" value="Delete" (click)="deleteRecord(i)"></td>
+    </tr>
+    <tr>
+      <td><input type="text" [(ngModel)]="newEmployee.empId" [disabled]="true" /></td>
+      <td><input type="text" [(ngModel)]="newEmployee.empName" /></td>
+      <td><input type="text" [(ngModel)]="newEmployee.empSalary" /></td>
+      <td><input type="button" value="Save" (click)="insertRecord()"></td>
+    </tr>
+  </table>
+</div>
+<hr />
+<h2>Service :</h2>
+<h3>{{serviceName}}</h3>
+<hr />
+
+<h2>Forms :</h2>
+<h3>Template Driven Forms</h3>
+<h3>Reactive Forms</h3>
+<hr />
+<h2>Template Driven Forms</h2>
+
+<form #empForm>
+  <table border="1px">
+    <tr>
+      <th> Employee Name</th>
+      <td><input type="text" [(ngModel)]="empname" name="empname" /></td>
+    </tr>
+     <tr> 
+      <td><button (click)="save()">save</button></td>
+      <td><input type = "reset" value = "clear" /></td>
+    </tr>
+  </table>
+</form>
+<hr />
+<h2>Reactive Form</h2>
+ <h3>Did'nt Created ...</h3>
+<hr/>
+
